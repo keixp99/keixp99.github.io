@@ -92,12 +92,12 @@ loadCharts();
 
 
 async function loadCharts() {
+    //localstorageからスコアを取得
+    const bookmarklet_txt = localStorage.getItem("bookmarklet_score");
+    //スコアがlocalStorageにない場合は空列(PST,PRS,FTR|ETR,BYD 空)にする
+    const score_list = (bookmarklet_txt === null) ? [[],[],[],[]] : JSON.parse(bookmarklet_txt);
+
     //グラフの設定
-    //Chart.defaults.font.size = 20;
-    //仮でデータをいれる 本来はlocalStorageから読む
-    const res = await fetch("../data/score_sorted.json");
-    const score_list = await res.json();
-    console.log(score_list);
     //chart of PST,PRS,FTR|ETR,BYD
     const charts = [, , ,];
     for (let difficulty = 0; difficulty < 4; difficulty++) {
