@@ -16,7 +16,8 @@
     /*%は原則親要素基準だが,position:fixedの場合全画面になる*/
     width: 100%;
     position: fixed;
-    z-index: 3;
+    /*なんとしても前に出る*/
+    z-index: 99999;
     left: 0;
     top: 0;
     background-color: rgba(0, 0, 0, 0.8);
@@ -65,7 +66,8 @@
     color: rgba(255, 255, 255, 0.7);
     /*下線を非表示*/
     text-decoration: none;
-    z-index:4;
+    /*.overlay よりも前に出る*/
+    z-index:100000;
 }
 
 .overlay .closebtn:hover {
