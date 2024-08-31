@@ -52,7 +52,7 @@ async function updateScore(difficulty,progressOutput) {
         progressOutput("saving new scores");
         let new_scores = JSON.parse(JSON.stringify(old_scores)); /*deep_copy*/
         /*塗り替えられたスコアを消す*/
-        for (item of upscores) {
+        for (const item of upscores) {
             new_scores[difficulty] = new_scores[difficulty].filter((e) => e.song_id !== item.song_id);
         }
         /*新しいスコアを追加*/
@@ -81,7 +81,7 @@ async function deleteScore(difficulty) {
         } else {
             let bookmarklet_score = JSON.parse(bookmarklet_txt);
             bookmarklet_score[difficulty] = [];
-            localStorage.setItem(JSON.stringify(bookmarklet_score));
+            localStorage.setItem("bookmarklet_score",JSON.stringify(bookmarklet_score));
             return 0;
         }
     }
