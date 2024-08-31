@@ -7,6 +7,10 @@ javascript: {
     style.rel = "stylesheet";
     style.href = "https://keixp99.github.io/score_checker/style/style.css";
 
+    const block_logo = document.createElement("link");
+    block_logo.rel = "stylesheet";
+    style.href = "https://keixp99.github.io/score_checker/style/block_logo.css"
+
     const button = `<button id="show-overlay">overlay</button>`;
     const html =
         `<div id="myNav" class="overlay">
@@ -85,6 +89,7 @@ javascript: {
         window.alert("injection start");
         document.querySelector("head").appendChild(overlay_style);
         document.querySelector("head").appendChild(style);
+        document.querySelector("head").appendChild(block_logo);
         document.querySelector("body").insertAdjacentHTML("afterbegin", button);
         /*stack contextの競争ではあとのほうが上になるらしい。https://ics.media/entry/200609/ 効いてるのかは知らん。*/
         document.querySelector("body").insertAdjacentHTML("beforeend", html);
