@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>テンプレート</title>
+    <link rel="stylesheet" href="../style/overlay_style.css">
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+
+<body>
+    <header>
+    </header>
+    <div class="container">
+        <button id="show-overlay">overlay</button>
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn">&times;</a>
+            <div class="overlay-inner">
+                <div class="overlay-content">
+                    <div>
+                        <button class="button-1" id="update-menu-open-button">Update</button>
+                    </div>
+                    <div class="update-menu">
+                        <div class="update-start">
+                            <div class="update-config">
+                                <label><input type="checkbox" class="update-checkbox" data-diff="0">PST</label>
+                                <label><input type="checkbox" class="update-checkbox" data-diff="1">PRS</label>
+                                <label><input type="checkbox" class="update-checkbox" data-diff="2">FTR|ETR</label>
+                                <label><input type="checkbox" class="update-checkbox" data-diff="3">BYD</label>
+                            </div>
+                            <div class="update-menu-buttons">
+                                <button class="button-1" id="update-start-button">Start</button>
+                                <button class="button-2" id="update-cancel-button">Cancel</button>
+                            </div>
+                        </div>
+                        <div class="update-progress">
+                        </div>
+                        <div class="update-finished">
+                            <div class="update-menu-buttons">
+                                <button class="button-2" id="update-ok-button">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabs">
+                        <div class="tab" data-tab="0">PST</div>
+                        <div class="tab" data-tab="1">PRS</div>
+                        <div class="tab active" data-tab="2">FTR|ETR</div>
+                        <div class="tab" data-tab="3">BYD</div>
+                        <div class="tab" data-tab="custom">custom</div>
+                    </div>
+                    <div class="custom-checkboxes">
+                        <label><input type="checkbox" class="custom-checkbox" data-diff="0">PST</label>
+                        <label><input type="checkbox" class="custom-checkbox" data-diff="1">PRS</label>
+                        <label><input type="checkbox" class="custom-checkbox" data-diff="2">FTR|ETR</label>
+                        <label><input type="checkbox" class="custom-checkbox" data-diff="3">BYD</label>
+                    </div>
+
+
+                    <div class="tab-content" id="tab-content-0">
+                        <canvas id="chart-0"></canvas>
+                    </div>
+                    <div class="tab-content" id="tab-content-1">
+                        <canvas id="chart-1"></canvas>
+                    </div>
+                    <div class="tab-content active" id="tab-content-2">
+                        <canvas id="chart-2"></canvas>
+                    </div>
+                    <div class="tab-content" id="tab-content-3">
+                        <canvas id="chart-3"></canvas>
+                    </div>
+                    <div class="tab-content" id="tab-content-custom">
+                        <canvas id="chart-custom"></canvas>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div><!-- /.container -->
+    <footer>
+        <div class="container">
+            <p>JavaScript Samples</p>
+        </div><!-- /.container -->
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="../script/overlay_menu.js"></script>
+        
+    </script>
+</body>
+
+</html>

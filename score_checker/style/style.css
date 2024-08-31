@@ -1,0 +1,161 @@
+.button-1 {
+    /*https://getcssscan.com/css-buttons-examples からコピペ*/
+    background-color: #EA4C89;
+    border-radius: 8px;
+    border: 1px solid;
+    border-color: transparent;
+    /*button-2とそろえる*/
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    /* font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif; */
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-1:hover {
+    background-color: #F082AC;
+    text-decoration: none;
+    transition-duration: 0.1s;
+}
+
+.button-1:disabled {
+    background-color: #FAFBFC;
+    border-color: rgba(27, 31, 35, 0.15);
+    color: #959DA5;
+    cursor: default;
+}
+
+.button-2 {
+    background-color: #FAFBFC;
+    border-radius: 8px;
+    border: 1px solid;
+    box-sizing: border-box;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    /* font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif; */
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.button-2:hover {
+    background-color: #F3F4F6;
+    text-decoration: none;
+    transition-duration: 0.1s;
+}
+
+.update-menu {
+    display: none;
+}
+
+.update-menu.active {
+    display: block;
+    width: fit-content;
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(216, 216, 216);
+}
+
+.update-start {
+    display: none;
+}
+
+.update-start.active {
+    display:block;
+}
+
+.update-config {
+    display: block;
+    margin: 5px;
+}
+
+.update-menu-buttons {
+    margin: 5px;
+    text-align: right;
+}
+
+.update-progress {
+    display: none;
+}
+
+.update-progress.active {
+    display: block;
+}
+
+.update-finished {
+    display: none;
+}
+
+.update-finished.active {
+    display: block;
+}
+
+.tab {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: #ddd;
+    border-radius: 5px 5px 0 0;
+}
+
+.tab.active {
+    color: #fff;
+    background-color: #382cb9;
+    border-bottom: 2px solid #fff;
+}
+
+.tab-content {
+    position:relative; /*chartをresponsiveにするため https://www.chartjs.org/docs/latest/configuration/responsive.html*/
+    display: none;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    height:80%;
+    width:100%;
+}
+
+.tab-content.active {
+    display: flex; /*chartを中央に表示*/
+    justify-content: center;
+}
+
+.custom-checkboxes {
+    display: none;
+}
+
+.custom-checkboxes.active {
+    display: flex;
+}
