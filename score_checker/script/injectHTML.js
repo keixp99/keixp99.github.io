@@ -9,7 +9,7 @@ javascript: {
 
     const block_logo = document.createElement("link");
     block_logo.rel = "stylesheet";
-    style.href = "https://keixp99.github.io/score_checker/style/block_logo.css"
+    block_logo.href = "https://keixp99.github.io/score_checker/style/block_logo.css";
 
     const button = `<button id="show-overlay">overlay</button>`;
     const html =
