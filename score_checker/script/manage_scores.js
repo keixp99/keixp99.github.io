@@ -46,7 +46,7 @@ async function updateScore(difficulty,progressOutput) {
                 break fetching_scores;
             }
             /*3秒まつ*/
-            progressOutput("pause between the requests (3 sec)")
+            progressOutput("pause between the requests (3 sec)");
             await new Promise(resolve => setTimeout(resolve, 3000));
         }
         progressOutput("saving new scores");

@@ -39,6 +39,8 @@ document.getElementById("update-start-button").onclick = async () => {
     try {
         for (let i of diff_to_update) {
             await updateScore(i, progressOutput);
+            progressOutput("pause between the requests (3 sec)");
+            await new Promise(resolve => setTimeout(resolve, 3000));
         }
         //グラフ再描画
         destroyAllCharts();
