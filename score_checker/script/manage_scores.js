@@ -32,7 +32,7 @@ async function updateScore(difficulty,progressOutput) {
         fetching_scores: for (let page_num = 1; ; page_num++) {
             progressOutput(`requesting page ${page_num}`);
             const page = await fetchJson(page_num, difficulty);
-            for (item of page.value.scores) {
+            for (const item of page.value.scores) {
                 if (item.time_played <= last_upscore_date) {
                     /*すでに過去のスコアのみ*/
                     progressOutput("fetching scores finished");
