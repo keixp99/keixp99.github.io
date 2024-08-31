@@ -73,6 +73,9 @@ javascript: {
         </div>
     </div>`;
 
+    const chartjs = document.createElement("script");
+    chartjs.src = "https://cdn.jsdelivr.net/npm/chart.js";
+
     const script = document.createElement("script");
     script.type = "module";
     script.src = "https://keixp99.github.io/score_checker/script/overlay_menu.js";
@@ -87,6 +90,7 @@ javascript: {
         document.querySelector("body").insertAdjacentHTML("beforeend", html);
         /*insertAdjacentHTMLではscriptを挿入しても実行されない
         https://stackoverflow.com/questions/57209520/script-injected-with-insertadjacenthtml-does-not-execute*/
+        document.querySelector("body").appendChild(chartjs);
         document.querySelector("body").appendChild(script);
     }
     undefined;
