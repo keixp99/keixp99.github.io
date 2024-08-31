@@ -1,19 +1,18 @@
-javascript: {
-    const overlay_style = document.createElement("link");
-    overlay_style.rel = "stylesheet";
-    overlay_style.href = "https://keixp99.github.io/score_checker/style/overlay_style.css";
+const overlay_style = document.createElement("link");
+overlay_style.rel = "stylesheet";
+overlay_style.href = "https://keixp99.github.io/score_checker/style/overlay_style.css";
 
-    const style = document.createElement("link");
-    style.rel = "stylesheet";
-    style.href = "https://keixp99.github.io/score_checker/style/style.css";
+const style = document.createElement("link");
+style.rel = "stylesheet";
+style.href = "https://keixp99.github.io/score_checker/style/style.css";
 
-    const block_logo = document.createElement("link");
-    block_logo.rel = "stylesheet";
-    block_logo.href = "https://keixp99.github.io/score_checker/style/block_logo.css";
+const block_logo = document.createElement("link");
+block_logo.rel = "stylesheet";
+block_logo.href = "https://keixp99.github.io/score_checker/style/block_logo.css";
 
-    const button = `<button id="show-overlay">overlay</button>`;
-    const html =
-        `<div id="myNav" class="overlay">
+const button = `<button id="show-overlay">overlay</button>`;
+const html =
+    `<div id="myNav" class="overlay">
         <a href="javascript:void(0)" class="closebtn">&times;</a>
         <div class="overlay-inner">
             <div class="overlay-content">
@@ -77,26 +76,29 @@ javascript: {
         </div>
     </div>`;
 
-    const chartjs = document.createElement("script");
-    chartjs.src = "https://cdn.jsdelivr.net/npm/chart.js";
-
-    const script = document.createElement("script");
-    script.type = "module";
-    script.src = "https://keixp99.github.io/score_checker/script/overlay_menu.js";
-    if (document.querySelectorAll('#show-overlay').length >= 1) {
-        window.alert("already created nav button");
-    } else {
-        window.alert("injection start");
-        document.querySelector("head").appendChild(overlay_style);
-        document.querySelector("head").appendChild(style);
-        document.querySelector("head").appendChild(block_logo);
-        document.querySelector("body").insertAdjacentHTML("afterbegin", button);
-        /*stack contextの競争ではあとのほうが上になるらしい。https://ics.media/entry/200609/ 効いてるのかは知らん。*/
-        document.querySelector("body").insertAdjacentHTML("beforeend", html);
-        /*insertAdjacentHTMLではscriptを挿入しても実行されない
-        https://stackoverflow.com/questions/57209520/script-injected-with-insertadjacenthtml-does-not-execute*/
-        document.querySelector("body").appendChild(chartjs);
-        document.querySelector("body").appendChild(script);
-    }
-    undefined;
+const script = document.createElement("script");
+script.type = "module";
+script.src = "https://keixp99.github.io/score_checker/script/overlay_menu.js";
+if (document.querySelectorAll('#show-overlay').length >= 1) {
+    window.alert("already created nav button");
+} else {
+    window.alert("injection start");
+    document.querySelector("head").appendChild(overlay_style);
+    document.querySelector("head").appendChild(style);
+    document.querySelector("head").appendChild(block_logo);
+    document.querySelector("body").insertAdjacentHTML("afterbegin", button);
+    /*stack contextの競争ではあとのほうが上になるらしい。https://ics.media/entry/200609/ 効いてるのかは知らん。*/
+    document.querySelector("body").insertAdjacentHTML("beforeend", html);
+    /*insertAdjacentHTMLではscriptを挿入しても実行されない
+    https://stackoverflow.com/questions/57209520/script-injected-with-insertadjacenthtml-does-not-execute*/
+    /*chart.jsを確実に先に読む
+    https://stackoverflow.com/questions/7718935/load-scripts-asynchronously */
+    await new Promise(function (resolve, reject) {
+        const s = document.createElement('script');
+        s.src = "https://cdn.jsdelivr.net/npm/chart.js";
+        s.onload = resolve;
+        s.onerror = reject;
+        document.head.appendChild(s);
+    });
+    document.querySelector("body").appendChild(script);
 }
