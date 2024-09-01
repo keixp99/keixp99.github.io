@@ -37,10 +37,13 @@ document.getElementById("update-start-button").onclick = async () => {
         document.querySelector('.update-progress').insertAdjacentHTML("beforeend", `${string}<br>`);
     });
     try {
-        for (let i of diff_to_update) {
-            await updateScore(i, progressOutput);
-            progressOutput("pause between the requests (3 sec)");
-            await new Promise(resolve => setTimeout(resolve, 3000));
+        for (let j = 0; j < diff_to_update.length; j++) {
+            await updateScore(diff_to_update[j], progressOutput);
+            if (j < diff_to_update.length - 1) {
+                //最後以外は3秒の間隔をいれる
+                progressOutput("pause between the requests (3 sec)");
+                await new Promise(resolve => setTimeout(resolve, 3000));
+            }
         }
         //グラフ再描画
         destroyAllCharts();
@@ -97,7 +100,7 @@ async function loadCharts() {
     //localstorageからスコアを取得
     const bookmarklet_txt = localStorage.getItem("bookmarklet_score");
     //スコアがlocalStorageにない場合は空列(PST,PRS,FTR|ETR,BYD 空)にする
-    const score_list = (bookmarklet_txt === null) ? [[],[],[],[]] : JSON.parse(bookmarklet_txt);
+    const score_list = (bookmarklet_txt === null) ? [[], [], [], []] : JSON.parse(bookmarklet_txt);
 
     //グラフの設定
     //chart of PST,PRS,FTR|ETR,BYD
