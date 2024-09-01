@@ -22,8 +22,8 @@ async function updateScore(difficulty,progressOutput) {
                 progressOutput("scores not saved; fetching all");
                 last_upscore_date = 0;
             } else {
-                last_upscore_date = parseInt(old_scores[difficulty][0].time_played); /*unix time*/
-                progressOutput(`last upscore saved: ${new Date(last_upscore_date * 1000)}`);
+                last_upscore_date = parseInt(old_scores[difficulty][0].time_played); /*ms timestamp*/
+                progressOutput(`last upscore saved: ${new Date(last_upscore_date)}`);
             }
         }
 
